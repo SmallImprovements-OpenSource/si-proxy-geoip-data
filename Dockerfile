@@ -7,8 +7,7 @@ RUN npm install
 ADD http://geolite.maxmind.com/download/geoip/database/GeoLite2-City-CSV.zip .
 ADD http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country-CSV.zip .
 
-RUN unzip GeoLite2-City-CSV.zip && rm GeoLite2-City-CSV.zip
-RUN unzip GeoLite2-Country-CSV.zip && rm GeoLite2-Country-CSV.zip
+RUN unzip GeoLite2-City-CSV.zip && unzip GeoLite2-Country-CSV.zip
 
 RUN mkdir /geoip-data
 
