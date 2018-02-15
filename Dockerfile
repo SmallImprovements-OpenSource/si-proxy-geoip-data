@@ -1,14 +1,16 @@
 FROM node:7.7.1-alpine
 WORKDIR /tmp
 
+ENV VERSION 20180206
+
 ADD . .
 
 RUN apk add --update curl && \
     rm -rf /var/cache/apk/*
 
-RUN curl -sSLO http://geolite.maxmind.com/download/geoip/database/GeoLite2-City-CSV.zip && \
-    curl -sSLO http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country-CSV.zip && \
-    unzip GeoLite2-City-CSV.zip && unzip GeoLite2-Country-CSV.zip && \
+RUN curl -sSLO http://geolite.maxmind.com/download/geoip/database/GeoLite2-City-CSV_${VERSION}.zip && \
+    curl -sSLO http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country-CSV_${VERSION}.zip && \
+    unzip GeoLite2-City-CSV_${VERSION}.zip && unzip GeoLite2-Country-CSV_${VERSION}.zip && \
     mkdir /geoip-data && \
     npm install && \
     node index \
