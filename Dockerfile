@@ -1,7 +1,13 @@
 FROM node:8.15.0-alpine
 WORKDIR /tmp
 
-ENV VERSION 20180206
+ENV VERSION 20190205
+
+ENV PROPERTIES = "\
+city_name \
+continent_code \
+country_iso_code \
+"
 
 ADD . .
 
@@ -14,7 +20,7 @@ RUN curl -sSLO http://geolite.maxmind.com/download/geoip/database/GeoLite2-City-
     mkdir /geoip-data && \
     npm install && \
     \
-    for property in "city_name continent_code country_iso_code"; \
+    for property in $PROPERTIES; \
     do \
       node index \
           GeoLite2-City-${VERSION}/GeoLite2-City-Blocks-IPv4.csv \
