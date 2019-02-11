@@ -26,6 +26,6 @@ RUN curl -sSLO http://geolite.maxmind.com/download/geoip/database/GeoLite2-City-
         GeoLite2-Country-CSV_${VERSION}/GeoLite2-Country-Locations-en.csv \
         continent_code > /geoip-data/continents.map && \
     \
-    rm -r ./*-CSV_${VERSION}
+    rm -r ./*
 
 VOLUME ["/geoip-data"]
