@@ -5,8 +5,7 @@ ENV VERSION 20190205
 
 ADD . .
 
-RUN apk add --update curl && \
-    rm -rf /var/cache/apk/${VERSION}
+RUN apk --no-cache add curl
 
 RUN curl -sSLO http://geolite.maxmind.com/download/geoip/database/GeoLite2-City-CSV_${VERSION}.zip && \
     curl -sSLO http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country-CSV_${VERSION}.zip && \
