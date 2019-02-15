@@ -10,7 +10,8 @@ RUN npm install
 
 RUN wget -q https://geolite.maxmind.com/download/geoip/database/GeoLite2-City-CSV_${VERSION}.zip \
             https://geolite.maxmind.com/download/geoip/database/GeoLite2-Country-CSV_${VERSION}.zip && \
-    unzip -q GeoLite2-City-CSV_${VERSION} GeoLite2-Country-CSV_${VERSION} && \
+    unzip -q GeoLite2-City-CSV_${VERSION} && \
+    unzip -q GeoLite2-Country-CSV_${VERSION} && \
     mkdir /geoip-data && \
     node index \
         GeoLite2-City-CSV_${VERSION}/GeoLite2-City-Blocks-IPv4.csv \
