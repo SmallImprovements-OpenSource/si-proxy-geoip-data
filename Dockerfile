@@ -6,6 +6,8 @@ ENV VERSION 20190205
 
 ADD . .
 
+RUN npm install
+
 RUN wget -q https://geolite.maxmind.com/download/geoip/database/GeoLite2-City-CSV_${VERSION}.zip \
             https://geolite.maxmind.com/download/geoip/database/GeoLite2-Country-CSV_${VERSION}.zip && \
     unzip -q GeoLite2-City-CSV_${VERSION} GeoLite2-Country-CSV_${VERSION} && \
