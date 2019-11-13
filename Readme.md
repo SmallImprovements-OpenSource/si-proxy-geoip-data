@@ -17,3 +17,5 @@ Every tagged version will be published. The tag should reflect the database used
 git tag 2018-02-06
 git push --tags
 ```
+
+Tagged versions are published to [Dockerhub](https://hub.docker.com/r/smallimprovements/si-proxy-geoip-data)
