@@ -2,7 +2,7 @@ FROM node:11.9.0-alpine
 
 WORKDIR /tmp
 
-ENV VERSION 20190212
+ENV VERSION 20191112 
 
 ADD . .
 
