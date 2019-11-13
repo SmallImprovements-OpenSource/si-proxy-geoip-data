@@ -2,7 +2,7 @@ FROM node:11.9.0-alpine
 
 WORKDIR /tmp
 
-ENV VERSION 20191112 
+ENV VERSION 20191112
 
 ADD . .
 
@@ -25,6 +25,10 @@ RUN wget -q https://geolite.maxmind.com/download/geoip/database/GeoLite2-City-CS
         GeoLite2-Country-CSV_${VERSION}/GeoLite2-Country-Blocks-IPv4.csv \
         GeoLite2-Country-CSV_${VERSION}/GeoLite2-Country-Locations-en.csv \
         continent_code > /geoip-data/continents.map && \
+    node index \
+        GeoLite2-Country-CSV_${VERSION}/GeoLite2-Country-Blocks-IPv4.csv \
+        GeoLite2-Country-CSV_${VERSION}/GeoLite2-Country-Locations-en.csv \
+        time_zone > /geoip-data/timezones.map && \
     \
     rm -r ./*
 
