@@ -29,6 +29,7 @@ RUN wget -q https://geolite.maxmind.com/download/geoip/database/GeoLite2-City-CS
         GeoLite2-City-CSV_${VERSION}/GeoLite2-City-Blocks-IPv4.csv \
         GeoLite2-City-CSV_${VERSION}/GeoLite2-City-Locations-en.csv \
         time_zone > /geoip-data/timezones.map && \
+    split -a 1 -l 2000000 /geoip-data/timezones.map timezones.map. && \
     \
     rm -r ./*
 
